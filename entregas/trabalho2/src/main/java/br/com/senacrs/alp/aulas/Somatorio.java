@@ -5,7 +5,6 @@ public class Somatorio {
 	
 	private static Somatorio instancia = new Somatorio();
 	
-	
 	private Somatorio() {
 
 		super();
@@ -15,6 +14,13 @@ public class Somatorio {
 		
 		double resultado = 0.0;
 		
+		if(valores == null){
+				resultado = Double.NaN;
+		}
+		
+		for(int i = 0;i <= 10; i++){
+			resultado = resultado + valores[i];
+		}
 		//Implementar
 		
 		return resultado;
