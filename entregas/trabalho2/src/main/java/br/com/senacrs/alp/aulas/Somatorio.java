@@ -16,7 +16,7 @@ public class Somatorio {
 		
 		if(valores == null){
 				resultado = Double.NaN;
-		}esle{
+		}else{
 			for(int i = 0;i <valores.length; i++){
 				resultado = valores[i] + resultado;
 			}
