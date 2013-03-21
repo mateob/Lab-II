@@ -6,14 +6,17 @@ public class MinhaLista<T> implements Lista<T>{
 	
 	@Override
 	public void adicionarFinal(T valor) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void adicionarInicio(T valor) {
-		// TODO Auto-generated method stub
+		Nodo<T> nodoA = null;
 		
+		inicio.proximo = nodoA.proximo;
+		nodoA = inicio;
+		
+		return resultado;
 	}
 
 	@Override
@@ -30,7 +33,7 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public T obterUltimo() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -61,7 +64,6 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public void esvaziar() {
-		// TODO Auto-generated method stub
 		
 	}
 
