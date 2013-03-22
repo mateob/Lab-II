@@ -17,9 +17,11 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public void adicionarPosicao(int posicao, T valor) {
 		Nodo<T> nodo = null;
+		Nodo<T> nodoNovo = null;
 		nodo = obterNodoPosicao(posicao -1); //A
-		nodo.proximo = obterNodoPosicao(posicao);
-		nodo = nodo.proximo;
+		nodoNovo.proximo = obterNodoPosicao(posicao);//D -> B
+		nodo.proximo = nodoNovo; // A-> D
+		nodoNovo.conteudo = valor;
 	}
 
 	@Override
