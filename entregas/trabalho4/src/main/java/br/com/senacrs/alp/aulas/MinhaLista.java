@@ -16,7 +16,10 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public void adicionarInicio(T valor) {
-		
+		Nodo<T> nodo = inicio;
+		Nodo<T> nodoNovo = new Nodo<T>();
+		nodoNovo.proximo = nodo.proximo;
+		nodoNovo.conteudo = valor;
 	}
 
 	@Override
@@ -60,7 +63,6 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public int obterTamanho() {
-		
 		int resultado = 0;
 		Nodo<T> nodo = null;
 		nodo = inicio;
@@ -74,8 +76,12 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public T removerPosicao(int posicao) {
 		Nodo<T> nodo = null;
+		Nodo<T> nodoAnterior = null;
 		nodo = obterNodoPosicao(posicao);
-		T resultado = null;
+		nodoAnterior = obterNodoPosicao(posicao -1);
+		nodoAnterior.proximo = nodo.proximo;
+		nodo.proximo = null;
+		T resultado = nodo.conteudo;
 		return resultado;
 	}
 
