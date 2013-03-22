@@ -6,20 +6,13 @@ public class MinhaLista<T> implements Lista<T>{
 	
 	@Override
 	public void adicionarFinal(T valor) {
-		Nodo<T> nodoNovo = new Nodo<T>();
-		Nodo<T> nodo = null;
-		nodo.conteudo = obterUltimo();
-		nodo.proximo = nodoNovo;
-		nodoNovo.proximo = null;
+		adicionarPosicao(obterTamanho(), valor);
 		
 	}
 
 	@Override
 	public void adicionarInicio(T valor) {
-		Nodo<T> nodo = inicio;
-		Nodo<T> nodoNovo = new Nodo<T>();
-		nodoNovo.proximo = nodo.proximo;
-		nodoNovo.conteudo = valor;
+		adicionarPosicao(0, valor);
 	}
 
 	@Override
@@ -34,8 +27,9 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public T obterPrimeiro() {
-		T resultado = obterPosicao(0);
-		return resultado;
+		Nodo<T> nodo = null;
+		nodo = obterNodoPosicao(0);
+		return nodo.conteudo;
 	}
 
 	@Override
@@ -87,8 +81,7 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public void esvaziar() {
-		Nodo<T> nodo = inicio;
-		nodo.proximo = null;
+		inicio.proximo = null;
 	}
 
 }
