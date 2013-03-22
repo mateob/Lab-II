@@ -6,6 +6,11 @@ public class MinhaLista<T> implements Lista<T>{
 	
 	@Override
 	public void adicionarFinal(T valor) {
+		Nodo<T> nodoAtual = null;
+		Nodo<T> nodoNovo = null;
+		nodoAtual.conteudo = obterUltimo();
+		nodoAtual.proximo = nodoNovo;
+		nodoNovo.proximo = null;
 		
 	}
 
@@ -19,7 +24,7 @@ public class MinhaLista<T> implements Lista<T>{
 		Nodo<T> nodo = null;
 		Nodo<T> nodoNovo = null;
 		nodo = obterNodoPosicao(posicao -1); //A
-		nodoNovo.proximo = obterNodoPosicao(posicao);//D -> B
+		nodoNovo.proximo = nodo.proximo;//D -> B
 		nodo.proximo = nodoNovo; // A-> D
 		nodoNovo.conteudo = valor;
 	}
