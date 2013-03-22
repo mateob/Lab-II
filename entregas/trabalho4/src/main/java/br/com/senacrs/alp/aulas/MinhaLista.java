@@ -19,9 +19,9 @@ public class MinhaLista<T> implements Lista<T>{
 	public void adicionarPosicao(int posicao, T valor) {
 		Nodo<T> nodo = null;
 		Nodo<T> nodoNovo = new Nodo<T>();
-		nodo = obterNodoPosicao(posicao -1); //A
-		nodoNovo.proximo = nodo.proximo;//D -> B
-		nodo.proximo = nodoNovo; // A-> D
+		nodo = obterNodoPosicao(posicao -1);
+		nodoNovo.proximo = nodo.proximo;
+		nodo.proximo = nodoNovo;
 		nodoNovo.conteudo = valor;
 	}
 
@@ -39,15 +39,7 @@ public class MinhaLista<T> implements Lista<T>{
 		return resultado;
 	}
 
-	private Nodo<T> obterNodoPosicao(int posicao){
-		Nodo<T> nodo = inicio;
-		int indice = -1;
-		while(posicao != indice){
-			nodo = nodo.proximo;
-			indice++;
-		}
-		return nodo;
-	}
+	
 	@Override
 	public T obterPosicao(int posicao) {
 		Nodo<T> nodo = null;
@@ -61,6 +53,7 @@ public class MinhaLista<T> implements Lista<T>{
 		Nodo<T> nodo = null;
 		nodo = inicio;
 		while(nodo.proximo != null){
+			nodo = nodo.proximo;
 			resultado++;
 		}
 		
@@ -70,7 +63,7 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public T removerPosicao(int posicao) {
 		Nodo<T> nodo = null;
-		Nodo<T> nodoAnterior = null;
+		Nodo<T> nodoAnterior = new Nodo<T>();
 		nodo = obterNodoPosicao(posicao);
 		nodoAnterior = obterNodoPosicao(posicao -1);
 		nodoAnterior.proximo = nodo.proximo;
@@ -82,6 +75,16 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public void esvaziar() {
 		inicio.proximo = null;
+	}
+	
+	private Nodo<T> obterNodoPosicao(int posicao){
+		Nodo<T> nodo = inicio;
+		int indice = -1;
+		while(posicao != indice){
+			nodo = nodo.proximo;
+			indice++;
+		}
+		return nodo;
 	}
 
 }
