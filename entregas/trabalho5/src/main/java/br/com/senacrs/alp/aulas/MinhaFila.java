@@ -30,19 +30,13 @@ public class MinhaFila<T> implements Fila<T> {
 
 	@Override
 	public int tamanho() {
-		int resultado = 0;
-		Nodo<T> nodo = null;
-		nodo = inicio;
-		while(nodo.proximo != null){
-			nodo = nodo.proximo;
-			resultado++;
-		}
-		return resultado;
+		
+		return 0;
 	}
 
 	@Override
 	public void esvaziar() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
