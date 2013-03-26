@@ -30,8 +30,14 @@ public class MinhaFila<T> implements Fila<T> {
 
 	@Override
 	public int tamanho() {
-		// TODO Auto-generated method stub
-		return 0;
+		int resultado = 0;
+		Nodo<T> nodo = null;
+		nodo = inicio;
+		while(nodo.proximo != null){
+			nodo = nodo.proximo;
+			resultado++;
+		}
+		return resultado;
 	}
 
 	@Override
