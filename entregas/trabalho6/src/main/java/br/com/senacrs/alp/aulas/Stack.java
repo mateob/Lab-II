@@ -1,15 +1,13 @@
 package br.com.senacrs.alp.aulas;
 
-public interface Stack{
+public class Stack<T>{
 	
-	public int size();
+	public T size;
 	
-	public boolean isEmpty();
+	public Stack<T> isEmpty;
 	
-	public Object top() throws StackEmptyException;
+	public Stack<T> push;
 	
-	public void push(Object o);
-	
-	public Object pop() throws StackEmptyException;
+	public Stack<T> pop;
 
 }

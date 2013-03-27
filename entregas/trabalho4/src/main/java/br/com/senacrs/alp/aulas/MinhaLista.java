@@ -19,6 +19,15 @@ public class MinhaLista<T> implements Lista<T>{
 	public void adicionarPosicao(int posicao, T valor) {
 		Nodo<T> nodo = null;
 		Nodo<T> nodoNovo = new Nodo<T>();
+		if(valor == null){
+			throw new IllegalArgumentException();
+		}
+		if(posicao < 0){
+			throw new IllegalArgumentException();
+		}
+		if(posicao > obterTamanho()){
+			throw new IllegalArgumentException();
+		}
 		nodo = obterNodoPosicao(posicao -1);
 		nodoNovo.proximo = nodo.proximo;
 		nodo.proximo = nodoNovo;
@@ -28,6 +37,9 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public T obterPrimeiro() {
 		Nodo<T> nodo = null;
+		if(obterNodoPosicao(0) == null){
+			throw new IllegalArgumentException();
+		}
 		nodo = obterNodoPosicao(0);
 		return nodo.conteudo;
 	}
@@ -43,6 +55,12 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public T obterPosicao(int posicao) {
 		Nodo<T> nodo = null;
+		if(posicao < 0 ){
+			throw new IllegalArgumentException();
+		}
+		if(posicao >= obterTamanho()){
+			throw new IllegalArgumentException();
+		}
 		nodo = obterNodoPosicao(posicao);
 		return nodo.conteudo;
 	}
@@ -64,6 +82,12 @@ public class MinhaLista<T> implements Lista<T>{
 	public T removerPosicao(int posicao) {
 		Nodo<T> nodo = null;
 		Nodo<T> nodoAnterior = new Nodo<T>();
+		if(posicao < 0 ){
+			throw new IllegalArgumentException();
+		}
+		if(posicao >= obterTamanho()){
+			throw new IllegalArgumentException();
+		}
 		nodo = obterNodoPosicao(posicao);
 		nodoAnterior = obterNodoPosicao(posicao -1);
 		nodoAnterior.proximo = nodo.proximo;
@@ -74,7 +98,7 @@ public class MinhaLista<T> implements Lista<T>{
 
 	@Override
 	public void esvaziar() {
-		inicio.proximo = null;
+		this.inicio.proximo = null;
 	}
 	
 	private Nodo<T> obterNodoPosicao(int posicao){
