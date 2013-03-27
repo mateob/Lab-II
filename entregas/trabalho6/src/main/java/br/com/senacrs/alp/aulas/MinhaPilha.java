@@ -1,13 +1,10 @@
 package br.com.senacrs.alp.aulas;
 
 public class MinhaPilha<T> implements Pilha<T> {
-
-	private Nodo<T> inicio = new Nodo<T>();
 	
 	@Override
 	public void insercao(T valor) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	@Override
