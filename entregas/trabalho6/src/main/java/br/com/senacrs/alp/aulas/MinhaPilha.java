@@ -17,7 +17,7 @@ public class MinhaPilha<T> implements Pilha<T> {
 
 	@Override
 	public T remocao() {
-		// TODO Auto-generated method stub
+		lista.removerPosicao(0);
 		return null;
 	}
 
