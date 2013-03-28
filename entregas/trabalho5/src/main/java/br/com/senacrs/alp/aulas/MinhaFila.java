@@ -2,42 +2,40 @@ package br.com.senacrs.alp.aulas;
 
 public class MinhaFila<T> implements Fila<T> {
 
-	Lista<T> lista = ListaFactory.getInstancia().criarLista();
+	private Lista<T> lista = ListaFactory.getInstancia().criarLista();
 	
 	@Override
 	public void insercao(T valor) {
-		// TODO Auto-generated method stub
-		
+		lista.adicionarPosicao(0, valor);
 	}
 
 	@Override
 	public T obter() {
-		// TODO Auto-generated method stub
-		return null;
+		return lista.obterPosicao(lista.obterTamanho());
 	}
 
 	@Override
 	public T remocao() {
-		// TODO Auto-generated method stub
-		return null;
+		return lista.removerPosicao(lista.obterTamanho() -1);
 	}
 
 	@Override
 	public boolean vazia() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resultado = false;
+		if(lista.obterTamanho() <= 0 ){
+			resultado = true;
+		}
+		return resultado;
 	}
 
 	@Override
 	public int tamanho() {
-		
-		return 0;
+		return lista.obterTamanho();
 	}
 
 	@Override
 	public void esvaziar() {
-		
-		
+		lista.esvaziar();		
 	}
 
 }
