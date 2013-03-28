@@ -2,7 +2,7 @@ package br.com.senacrs.alp.aulas;
 
 public class MinhaPilha<T> implements Pilha<T> {
 	
-	private Stack<T> fila = new Stack<T>();
+	Lista<T> lista = ListaFactory.getInstancia().criarLista();
 	
 	@Override
 	public void insercao(T valor) {

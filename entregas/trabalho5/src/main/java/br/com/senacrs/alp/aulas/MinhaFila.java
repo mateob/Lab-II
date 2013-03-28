@@ -2,7 +2,7 @@ package br.com.senacrs.alp.aulas;
 
 public class MinhaFila<T> implements Fila<T> {
 
-	private Nodo<T> inicio = new Nodo<T>();
+	Lista<T> lista = ListaFactory.getInstancia().criarLista();
 	
 	@Override
 	public void insercao(T valor) {
