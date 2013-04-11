@@ -81,7 +81,7 @@ public class MinhaLista<T> implements Lista<T>{
 	@Override
 	public T removerPosicao(int posicao) {
 		Nodo<T> nodo = null;
-		Nodo<T> nodoAnterior = new Nodo<T>();
+		Nodo<T> nodoAnterior = null;
 		if(posicao < 0 ){
 			throw new IllegalArgumentException();
 		}
