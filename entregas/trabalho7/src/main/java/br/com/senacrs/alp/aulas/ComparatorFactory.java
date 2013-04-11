@@ -13,7 +13,7 @@ public class ComparatorFactory {
 		
 		Comparator<Integer> resultado = null;
 		
-		//implementar
+		resultado = new MeuComparadorInt<Integer>();
 		
 		return resultado;
 	}
@@ -22,7 +22,7 @@ public class ComparatorFactory {
 		
 		Comparator<String> resultado = null;
 		
-		//implementar
+		resultado = new MeuComparadorStr<String>();
 		
 		return resultado;
 	}
