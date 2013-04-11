@@ -11,7 +11,7 @@ public class MinhaFila<T> implements Fila<T> {
 
 	@Override
 	public T obter() {
-		return lista.obterPosicao(lista.obterTamanho());
+		return lista.obterPosicao(lista.obterTamanho() -1);
 	}
 
 	@Override

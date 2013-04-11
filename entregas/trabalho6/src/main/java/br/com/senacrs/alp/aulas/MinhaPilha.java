@@ -11,7 +11,7 @@ public class MinhaPilha<T> implements Pilha<T> {
 
 	@Override
 	public T obter() {
-		return lista.obterPosicao(lista.obterTamanho());
+		return lista.obterPosicao(0);
 	}
 
 	@Override

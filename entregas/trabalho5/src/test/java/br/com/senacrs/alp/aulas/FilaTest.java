@@ -156,9 +156,10 @@ public class FilaTest {
 		}
 		for (int i = 0; i < qtd; i++) {
 			valor = lista.get(i);
+			obj.obter();
 			obtido = obj.remocao();
 			msg = String.format(tmpl, String.valueOf(valor),
-					String.valueOf(obtido), String.valueOf(obj));
+					String.valueOf(obtido), String.valueOf(obj));			
 			Assert.assertEquals(msg, valor, obtido);			
 		}
 	}
