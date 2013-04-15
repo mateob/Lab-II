@@ -9,14 +9,14 @@ public class MeuComparadorInt implements Comparator<Integer> {
 		int resultado = 0;
 		if (o1 == null && o2 == null) {
 			resultado = 0;
-		}else if (o1/2==0){
+		}else if (o1%2 == 0){
 			if(o1 < o2){
 				resultado =  -1;
 			}else{
 				resultado = 1;
 			}
-		}else if(o2%2!=0){
-			if(o1<o2){
+		}else if(o2%2 != 0){
+			if(o1 < o2){
 				resultado = 1;
 			}else{
 				resultado = -1;
