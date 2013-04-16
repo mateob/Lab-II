@@ -7,23 +7,41 @@ public class MeuComparadorInt implements Comparator<Integer> {
 	@Override
 	public int compare(Integer o1, Integer o2) {
 		int resultado = 0;
-		if (o1 == null && o2 == null) { //se for nulo retorna 0
-			resultado = 0;
-		}else if (o1%2 == 0){  // o1 e par
-			if(o1 > o2){ // o1 e menor que o2
-				resultado =  -1;
-			}else{ // o1 e menor que o2
-				resultado = 1;
-			}
-		}else if(o2%2 != 0){ // se o2 por impar
-			if(o1 < o2){ // 
-				resultado = 1;
-			}else{
-				resultado = -1;
-			}
-		} else {
-			resultado = o2.compareTo(o1);
+		
+		if(par(o1) == par(o2)){
+			resultado = comparaMesmaParidade(o1, o2);
+		}else{
+			resultado = comparaParidadeDistinta(o1, o2);
 		}
+		
+		return resultado;
+	}
+
+	private int comparaParidadeDistinta(Integer o1, Integer o2) {
+		int resultado = 0;
+		
+		if(par(o1)){
+			resultado = -1;
+		}else{
+			resultado = 1;
+		}
+		return resultado;
+	}
+
+	private int comparaMesmaParidade(Integer o1, Integer o2) {
+		int resultado = 0;
+		
+		resultado = o1.intValue() - o2.intValue();
+		
+		return resultado;
+	}
+
+	private boolean par(Integer o1) {
+		
+		boolean resultado = false;
+		
+		resultado = o1.intValue() % 2 ==0;
+		
 		return resultado;
 	}
 }
