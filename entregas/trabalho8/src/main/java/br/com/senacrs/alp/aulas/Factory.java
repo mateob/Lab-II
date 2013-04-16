@@ -11,7 +11,7 @@ public class Factory {
 	
 		Funcionario resultado = null;
 		
-		//implementar
+		resultado = new McriarFunc();
 		
 		return resultado;
 	}
@@ -20,7 +20,7 @@ public class Factory {
 	
 		Departamento resultado = null;
 		
-		//implementar
+		resultado = new McriarDepto();
 		
 		return resultado;
 	}
@@ -29,7 +29,7 @@ public class Factory {
 	
 		Empresa resultado = null;
 		
-		//implementar
+		resultado = new McriarEmp();
 		
 		return resultado;
 	}
