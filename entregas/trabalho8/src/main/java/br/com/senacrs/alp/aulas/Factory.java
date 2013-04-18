@@ -8,19 +8,19 @@ public class Factory {
 	}
 	
 	public Funcionario criarFuncionario(Departamento departamento, String nome, double salario) {
-	
+		
 		Funcionario resultado = null;
 		
-		resultado = new McriarFunc();
+		resultado = new McriarFunc(nome, departamento, null, salario);
 		
 		return resultado;
 	}
 	
 	public Departamento criarDepartamento(Empresa empresa, String nome) {
-	
+		
 		Departamento resultado = null;
 		
-		resultado = new McriarDepto();
+		resultado = new McriarDepto(nome, empresa);
 		
 		return resultado;
 	}
@@ -29,7 +29,8 @@ public class Factory {
 	
 		Empresa resultado = null;
 		
-		resultado = new McriarEmp();
+		resultado = new McriarEmp(nome);
+		resultado.getNome();
 		
 		return resultado;
 	}

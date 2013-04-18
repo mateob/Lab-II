@@ -5,29 +5,47 @@ import br.com.senacrs.alp.aulas.Funcionario;
 
 
 public class McriarFunc implements Funcionario{
+	
+	private String nome;
+	private Departamento Departamento;
+	private Empresa empresa;
+	private double salario;
+	
+	public McriarFunc(String nome, Departamento departamento, Empresa empresa, double salario){
+		if(salario <= 0){
+			throw new IllegalArgumentException();
+		}
+		if(departamento == null){
+			throw new IllegalArgumentException();
+		}
+		if(nome == null){
+			throw new IllegalArgumentException();
+		}
+		
+		
+		this.nome = nome;
+		this.Departamento = departamento;
+		this.empresa = empresa;
+		this.salario = salario;
+	}
 
 	@Override
 	public Empresa getEmpresa() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.empresa;	
 	}
 
 	@Override
 	public Departamento getDepartamento() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.Departamento;
 	}
 
 	@Override
 	public String getNome() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.nome;
 	}
 
 	@Override
 	public double getSalario() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.salario;
 	}
-
 }

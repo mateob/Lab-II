@@ -4,12 +4,20 @@ import java.util.List;
 
 public class McriarEmp implements Empresa{
 
+	private String nome;
+	
+	public McriarEmp(String nome){
+		if(nome == null){
+			throw new IllegalArgumentException();
+		}
+		
+		this.nome = nome;
+	}
 	@Override
 	public String getNome() {
-		// TODO Auto-generated method stub
-		return null;
+		return nome;
 	}
-
+	
 	@Override
 	public List<Departamento> listaDepartamentoOrdemCrescentePorQtdFuncionarios() {
 		// TODO Auto-generated method stub
@@ -18,7 +26,9 @@ public class McriarEmp implements Empresa{
 
 	@Override
 	public void adicionarDepartamento(Departamento departamento) {
-		// TODO Auto-generated method stub
+		if(departamento == null){
+			throw new IllegalArgumentException();
+		}
 		
 	}
 
@@ -27,5 +37,7 @@ public class McriarEmp implements Empresa{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 
 }
