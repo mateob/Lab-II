@@ -9,9 +9,13 @@ public class Factory {
 	
 	public Funcionario criarFuncionario(Departamento departamento, String nome, double salario) {
 		
+		if(departamento == null){
+			throw new IllegalArgumentException();
+		}
+		
 		Funcionario resultado = null;
 		
-		resultado = new McriarFunc(nome, departamento, null, salario);
+		resultado = new McriarFunc(nome, departamento, departamento.getEmpresa(), salario);
 		
 		return resultado;
 	}

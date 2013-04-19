@@ -1,13 +1,14 @@
 package br.com.senacrs.alp.aulas;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class McriarDepto implements Departamento{
 	
 	private String nome;
 	private Empresa empresa;
+	private ArrayList<Funcionario> func = new ArrayList<Funcionario>();
 	
 	public McriarDepto(String nome, Empresa empresa){
 		if(nome == null){
@@ -32,20 +33,21 @@ public class McriarDepto implements Departamento{
 
 	@Override
 	public List<Funcionario> listarFuncionariosPorOrdemAlfabetica() {
-
-		return null;
+		CFPOA ca = new CFPOA();
+		Collections.sort(func,ca);
+		return func;
 	}
 
 	@Override
 	public List<Funcionario> listarFuncionariosPorDecrescenteSalario() {
-		
-		return null;
+		CFPDS cs = new CFPDS();
+		Collections.sort(func,cs);
+		return func;
 	}
 
 	@Override
 	public int quantidadeFuncionarios() {
-		// TODO Auto-generated method stub
-		return 0;
+		return func.size();
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public class McriarDepto implements Departamento{
 		if(funcionario == null){
 			throw new IllegalArgumentException();
 		}
-		
+		func.add(funcionario);
 	}
 
 }
