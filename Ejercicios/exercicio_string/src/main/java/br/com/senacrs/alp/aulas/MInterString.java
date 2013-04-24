@@ -4,8 +4,13 @@ public class MInterString implements InterpretadorStrings{
 
 	@Override
 	public TIPO_STRING lerString(String str) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		TIPO_STRING resultado = null;
+		
+		if(str != "<string>"){
+			resultado =  TIPO_STRING.MAL_FORMADA;
+		}
+		return resultado;
 	}
 
 }
