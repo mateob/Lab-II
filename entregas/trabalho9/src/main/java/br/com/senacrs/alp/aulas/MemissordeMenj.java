@@ -10,6 +10,8 @@ public class MemissordeMenj implements EmissorMensagens {
 			throw new IllegalArgumentException();
 		}
 		
+		/* chave <string> = <string> argumento */
+		
 		return resultado;
 	}
 
