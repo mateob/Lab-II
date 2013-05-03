@@ -1,11 +1,41 @@
 package br.com.senacrs.alp.aulas;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class MListaConteudoD implements ListaConteudoDiretorio{
 
 	@Override
 	public String[] listarConteudo(File diretorio) {
+		if(diretorio == null){
+			throw new IllegalArgumentException();
+		}
+		if(!diretorio.isFile()){
+			throw new IllegalArgumentException();
+		}
+		if(!diretorio.canRead()){
+			throw new IllegalArgumentException();
+		}
+		if(!diretorio.exists()){
+			throw new IllegalArgumentException();
+		}
+		try{
+			FileReader fr = new FileReader(diretorio);
+			BufferedReader br = new BufferedReader(fr);
+			
+			boolean tem = false;
+			String x;
+			int y = 0;
+			while((x=br.readLine())!=null){
+				String l[] = x.split("");
+				
+			}
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
 		
 		
 		/* ou e D ou / - se por diretorio D, esta tudo na interfaze, se for um arquivo um "-"

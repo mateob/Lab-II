@@ -15,7 +15,7 @@ public class Factory {
 		
 		EmissorMensagens resultado = null;
 		
-		resultado = new MemissordeMenj();
+		resultado = new MemissordeMenj(arquivoEntrada);
 		
 		return resultado;
 	}
