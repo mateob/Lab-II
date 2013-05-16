@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class ListaConteudoDiretorioTest {
-
+	
 	private final static String DIRETORIO_ENTRADA = System
 			.getProperty("user.dir")
 			+ File.separatorChar
@@ -31,7 +31,7 @@ public class ListaConteudoDiretorioTest {
 
 	@Before
 	public void setUp() throws Exception {
-
+		
 		diretorio = criarDiretorio();
 		obj = factory.criar();
 		Assert.assertNotNull(obj);
@@ -43,13 +43,13 @@ public class ListaConteudoDiretorioTest {
 
 		resultado = new File(DIRETORIO_ENTRADA);
 		Assert.assertTrue(resultado.mkdirs());
-
+		
 		return resultado;
 	}
 
 	@After
 	public void tearDown() throws Exception {
-
+		
 		removeAll(diretorio);
 		obj = null;
 		diretorio = null;
@@ -70,17 +70,17 @@ public class ListaConteudoDiretorioTest {
 
 	@Test	
 	public void testListarConteudoNull() {
-
+		
 		exception.expect(IllegalArgumentException.class);
 		obj.listarConteudo(null);
 	}
 
 	@Test	
 	public void testListarConteudoInexistente() throws IOException {
-
+		
 		File inexistente = null;
 		String nome = null;
-
+		
 		exception.expect(IllegalArgumentException.class);
 		nome = criarStringAleatoria();
 		inexistente = new File(diretorio, nome); 
@@ -103,72 +103,72 @@ public class ListaConteudoDiretorioTest {
 
 	@Test	
 	public void testListarConteudoArquivo() throws IOException {
-
+		
 		File arquivo = null;
-
+		
 		exception.expect(IllegalArgumentException.class);
 		arquivo = criarArquivo();
 		obj.listarConteudo(arquivo);
 	}
 
 	private File criarArquivo() throws IOException {
-
+	
 		File resultado = null;
 		String nome = null;
-
+	
 		nome = criarStringAleatoria();
 		resultado = criarArquivo(nome);
-
+		
 		return resultado;
 	}
 
 	private File criarArquivo(String nome) throws IOException {
-
+		
 		File resultado = null;
 		resultado = new File(diretorio, nome);
 		Assert.assertTrue(resultado.createNewFile());
-
+		
 		return resultado;
 	}
 
 	@Test	
 	public void testListarConteudoDiretorioSemPermissao() throws IOException {
-
+		
 		File dir = null;
-
+		
 		exception.expect(IllegalArgumentException.class);
 		dir = criarSubDiretorio();
-		if (dir.setReadable(false)) {
+		if (!dir.setReadable(false)) {
 			throw new IllegalArgumentException();
 		}
 		obj.listarConteudo(dir);
 	}
 
 	private File criarSubDiretorio() throws IOException {
-
+	
 		File resultado = null;
 		String nome = null;
-
+	
 		nome = criarStringAleatoria();
 		resultado = criarSubDiretorio(nome);
-
+		
 		return resultado;
 	}
 
 	private File criarSubDiretorio(String nome) {
 		File resultado = null;
-
+		
 		resultado = new File(diretorio, nome);
 		Assert.assertTrue(resultado.mkdirs());
-
+		
 		return resultado;
 	}
 
 	@Test	
 	public void testListarConteudoVazio() throws IOException {
-
+		
 		String[] resultado = null;
-
+		
 		resultado = obj.listarConteudo(diretorio);
 		Assert.assertNotNull(resultado);
 		Assert.assertEquals(0, resultado.length);
@@ -176,12 +176,12 @@ public class ListaConteudoDiretorioTest {
 
 	@Test	
 	public void testListarConteudoApenasUmArquivo() throws IOException {
-
+		
 		String[] resultado = null;
 		String esperado = null;
 		File arq = null;
 		boolean canSetExecutable = false;
-
+		
 		arq = criarArquivo();
 		Assert.assertTrue(arq.setReadable(true));
 		Assert.assertTrue(arq.setWritable(false));
@@ -199,18 +199,16 @@ public class ListaConteudoDiretorioTest {
 
 	@Test	
 	public void testListarConteudoApenasUmDiretorio() throws IOException {
-
+		
 		String[] resultado = null;
 		String esperado = null;
 		File arq = null;
 		boolean canSetExecutable = false;
-
+		
 		arq = criarSubDiretorio();
-		arq.setReadable(false);
-		arq.setWritable(true);
 		canSetExecutable = arq.setExecutable(false);
 		esperado = "" + ListaConteudoDiretorio.IDENTIFICA_DIRETORIO + ListaConteudoDiretorio.SEPARADOR
-				+ ListaConteudoDiretorio.NADA_CONSTA 
+				+ ListaConteudoDiretorio.PERMISSAO_LEITURA
 				+ ListaConteudoDiretorio.PERMISSAO_ESCRITA
 				+ (canSetExecutable ? ListaConteudoDiretorio.NADA_CONSTA : ListaConteudoDiretorio.PERMISSAO_EXECUCAO) + ListaConteudoDiretorio.SEPARADOR
 				+ arq.length() + ListaConteudoDiretorio.SEPARADOR
@@ -222,17 +220,17 @@ public class ListaConteudoDiretorioTest {
 
 	@Test	
 	public void testListarConteudo() throws IOException {
-
+		
 		String[] resultado = null;
 		String[] esperado = null;
-
+		
 		esperado = criarVariosDiretoriosArquivos();
 		resultado = obj.listarConteudo(diretorio);
 		Assert.assertArrayEquals(esperado, resultado);
 	}
 
 	private String[] criarVariosDiretoriosArquivos() throws IOException {
-
+		
 		String[] resultado;
 		int qtd = 0;
 		File file = null;
@@ -257,7 +255,7 @@ public class ListaConteudoDiretorioTest {
 					+ String.valueOf(file.length()) + ListaConteudoDiretorio.SEPARADOR
 					+ file.getName();
 		}
-
+		
 		return resultado;
 	}
 }
