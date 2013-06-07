@@ -3,5 +3,6 @@
 port = 54321 # comentario em linha
 error_dir = ./html/error/
 # root_dir = ./html
+root_dir # = lalal
 
 # Comentario final

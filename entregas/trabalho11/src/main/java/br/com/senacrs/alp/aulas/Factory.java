@@ -10,8 +10,11 @@ public class Factory {
 	public ArquivoConfiguracao criarArquivoConfiguracao(String arquivoEntrada) {
 	
 		ArquivoConfiguracao resultado = null;
+		if(arquivoEntrada == null){
+			throw new IllegalArgumentException();
+		}
 		
-		//implementar
+		resultado = new MeuArquivo(arquivoEntrada);
 		
 		return resultado;
 	}
