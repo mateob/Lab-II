@@ -26,6 +26,7 @@ public class MemissordeMenj implements EmissorMensagens {
 					arctem = true;
 				}
 			}
+			
 			if(arctem == false){
 				throw new IllegalArgumentException();
 			}
