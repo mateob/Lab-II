@@ -6,7 +6,9 @@ public class MinhaCLV implements ValidarRequisicaoGet{
 
 	@Override
 	public boolean ehRequisicaoGetValida(Reader requisicao) {
-		// TODO Auto-generated method stub
+		if(requisicao == null){
+			throw new IllegalArgumentException();
+		}
 		return false;
 	}
 
