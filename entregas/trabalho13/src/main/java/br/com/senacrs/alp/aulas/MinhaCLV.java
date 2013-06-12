@@ -1,0 +1,13 @@
+package br.com.senacrs.alp.aulas;
+
+import java.io.Reader;
+
+public class MinhaCLV implements ValidarRequisicaoGet{
+
+	@Override
+	public boolean ehRequisicaoGetValida(Reader requisicao) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
