@@ -9,6 +9,8 @@ public class MinhaCOP implements ObterPathRequisicaoGet{
 		if(requisicao == null){
 			throw new IllegalArgumentException();
 		}
+		
+		
 		return null;
 	}
 

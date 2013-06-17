@@ -1,9 +1,5 @@
 package br.com.senacrs.alp.aulas.sockets;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-
 public class ServidorMain {
 
 	private static final int PORT_54321 = 54321;
