@@ -48,6 +48,7 @@ public class MinhaCLV implements ValidarRequisicaoGet{
 			while(br.readLine() != null){
 				resultado[i] = br.readLine();
 				i++;
+				System.out.println("Passou por aqui");
 			}
 		}catch(IOException e){
 			throw new IllegalArgumentException();
