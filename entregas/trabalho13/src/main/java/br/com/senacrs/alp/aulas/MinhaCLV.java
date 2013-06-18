@@ -21,32 +21,30 @@ public class MinhaCLV implements ValidarRequisicaoGet{
 		
 		linha = lerReader(requisicao);
 		resultado = verTeste(linha);
-		int i = 0;
 		
-		while(linha != null){
-			if(linha[i] == null){
-				resultado = false;
-			}else if(linha[i].equals(GET) && linha[i].equals(HOST)){
-				resultado = true;
-			}	
-			i++;
-		}
 		
 		return resultado;
 	}
 
 	private boolean verTeste(String[] linha) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resultado = false;
+			if(linha == null){
+				resultado = false;
+			}else if(linha.equals(GET) && linha.equals(HOST)){
+				resultado = true;
+			}	
+		return resultado;
 	}
 
 	private String[] lerReader(Reader requisicao) {
 		String[] resultado = null;
-		BufferedReader br = new BufferedReader(requisicao);
-		int i = 0;
 		try{
-			while(br.readLine() != null){
-				resultado[i] = br.readLine();
+			BufferedReader br = new BufferedReader(requisicao);
+			String linha = null;
+			int i = 0;
+			
+			while((linha = br.readLine()) != null){
+				resultado[i] = linha;
 				i++;
 				System.out.println("Passou por aqui");
 			}
