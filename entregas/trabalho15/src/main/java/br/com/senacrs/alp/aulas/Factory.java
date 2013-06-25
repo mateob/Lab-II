@@ -11,7 +11,7 @@ public class Factory {
 	
 		ObterCabecalhoRequisicaoGet resultado = null;
 		
-		resultado = new meuCriarValidacao(config);
+		resultado = new meuArcCriaValida(config);
 		
 		return resultado;
 	}

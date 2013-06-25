@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class meuCriarValidacao implements ObterCabecalhoRequisicaoGet {
+public class meuArcCriaValida implements ObterCabecalhoRequisicaoGet {
 
 	private ArquivoConfiguracao config;
 	private static String PATH = "/";
@@ -21,7 +21,7 @@ public class meuCriarValidacao implements ObterCabecalhoRequisicaoGet {
 	private static final String HTTP_1_0_404_NOT_FOUND = "HTTP/1.0 404 NotFound";
 	
 	
-	public meuCriarValidacao(ArquivoConfiguracao config) {
+	public meuArcCriaValida(ArquivoConfiguracao config) {
 		this.config = config;
 		
 		
