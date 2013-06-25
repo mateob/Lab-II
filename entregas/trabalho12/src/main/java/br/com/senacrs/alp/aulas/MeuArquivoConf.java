@@ -5,19 +5,12 @@ public class MeuArquivoConf implements Configuracao {
 	private ArquivoConfiguracao config;
 
 	public MeuArquivoConf(ArquivoConfiguracao config){
-
 		this.config = config;
 	}			
 
 	@Override
 	public ArquivoConfiguracao getArquivoConfiguracao() {
-
-		ArquivoConfiguracao resultado = null;
-
-		resultado = ArquivoConfiguracao.class.cast(config);
-
-
-		return resultado;
+		return config;
 	}
 
 	@Override
@@ -25,13 +18,13 @@ public class MeuArquivoConf implements Configuracao {
 
 		boolean resultado = false;
 
-		if((ArquivoConfiguracao.class.cast(config).getPort() >= 1024) 
+		/*if((ArquivoConfiguracao.class.cast(config).getPort() >= 1024) 
 				&& (ArquivoConfiguracao.class.cast(config).getPort()<= 65535)
 				&& (ArquivoConfiguracao.class.cast(config).getRootDir().equals("./html"))
 				&& (ArquivoConfiguracao.class.cast(config).getErrorDir().equals("./html/error/"))) {
 
 			resultado = true;
-		}
+		}*/
 
 
 		return resultado;

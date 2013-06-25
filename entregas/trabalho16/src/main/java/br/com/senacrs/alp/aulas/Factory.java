@@ -11,7 +11,7 @@ public class Factory {
 	
 		ObterRequisicaoGet resultado = null;
 		
-		//implementar
+		resultado = new MeuCriarValidacao(config);
 		
 		return resultado;
 	}
