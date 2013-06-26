@@ -22,7 +22,7 @@ public class Factory {
 		
 		ArquivoConfiguracao resultado = null;
 		
-		//implementar
+		resultado = new MeuArqConf(arquivoConfiguracao);
 		
 		return resultado;
 	}
@@ -31,7 +31,7 @@ public class Factory {
 	
 		ResponderRequisicaoGet resultado = null;
 		
-		//implementar
+		resultado = new MinhaRequisicaoGet(config);
 		
 		return resultado;
 	}
